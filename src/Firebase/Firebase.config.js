@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_apiKey,
-  authDomain:import.meta.env.VITE_authDomain,
-  projectId:import.meta.env.VITE_projectId,
-  storageBucket:import.meta.env.VITE_storageBucket,
-  messagingSenderId:import.meta.env.VITE_messagingSenderId,
-  appId:import.meta.env.VITE_appId
+  apiKey: "AIzaSyDrQ53MUgKbLZLIoUb44Rm9My7_rfTnckc",
+  authDomain: "digital-week-62414.firebaseapp.com",
+  projectId: "digital-week-62414",
+  storageBucket: "digital-week-62414.firebasestorage.app",
+  messagingSenderId: "918739179330",
+  appId: "1:918739179330:web:bc8fb25fbebbedb8959adb",
 };
 
 // Initialize Firebase

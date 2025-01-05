@@ -1,10 +1,34 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../Providers/AuthProvider";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const SignUp = () => {
+
+    const{ createUser } = useContext(AuthContext);
 
      const handleSignUp = (event) => {
        event.preventDefault();
+       const form = event.target;
+       const name = form.name.value;
+       const email = form.email.value;
+       const password = form.password.value;
+       console.log(name, email, password);
+
+
+        createUser (email, password)
+        .then (result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch (error => 
+            console.log(error)
+        )
+
      };
+
+
+
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -26,6 +50,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="name"
                   className="input input-bordered"
                   required
@@ -37,6 +62,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -48,6 +74,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
