@@ -48,15 +48,17 @@ const Nav = () => {
                 {navItems}
               </ul>
             </div>
-            <Link to="/" className="btn btn-ghost text-xl">Digital Week</Link>
+            <Link to="/" className="btn btn-ghost text-xl">
+              Digital Week
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-             {navItems}
-            </ul>
+            <ul className="menu menu-horizontal px-1">{navItems}</ul>
           </div>
           <div className="navbar-end">
-            <button className="btn btn-outline btn-info">Login</button>
+            <Link to="/login" >
+              <button className="btn btn-outline btn-info">Login</button>
+            </Link>
           </div>
         </div>
       </div>
