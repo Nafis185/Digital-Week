@@ -1,72 +1,26 @@
-import img from "../../../assets/banner/Digital_Week_Banner.jpg";
+// import img from "../../../assets/banner/Digital_Week_Banner.jpg";
+// import img2 from "../../../assets/banner/Digital_Week_Banner_2.jpg";
+
 import img2 from "../../../assets/banner/Digital_Week_Banner_2.jpg";
 
-
-
 const Banner = () => {
-    return (
-      <div>
-        <h1>Banner</h1>
-        <div className="carousel w-full">
-          <div id="slide1" className="carousel-item relative w-full">
-            <img
-              src={img}
-              className="w-full"
-            />
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide4" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide2" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
-          </div>
-          <div id="slide2" className="carousel-item relative w-full">
-            <img
-              src={img2}
-              className="w-full"
-            />
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide1" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide3" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
-          </div>
-          <div id="slide3" className="carousel-item relative w-full">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-              className="w-full"
-            />
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide2" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide4" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
-          </div>
-          <div id="slide4" className="carousel-item relative w-full">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-              className="w-full"
-            />
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a href="#slide3" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide1" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
+  return (
+    <div className="relative w-full h-screen">
+      <img src={img2} alt="Banner" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#151515] to-[#15151500] flex items-center justify-center">
+        <div className="text-white text-center space-y-7 p-10">
+          <h2 className="text-6xl font-bold">Welcome to Digital Week</h2>
+          <p className="text-2xl">
+            Explore the future of technology at our university's premier digital
+            event
+          </p>
+          <div className="flex gap-5 justify-center items-center">
+            <button className="btn btn-primary">Register Now</button>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Banner;
