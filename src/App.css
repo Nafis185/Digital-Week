@@ -1,0 +1,18 @@
+.black-container {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.black-container div {
+  text-align: center;
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}

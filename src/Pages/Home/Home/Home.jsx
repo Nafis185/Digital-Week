@@ -2,6 +2,8 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import EventSchedule from "../Event/EventSchedule";
 import Collapse from "./Collapse";
+import Contact from "./Contact";
+
 
 
 const Home = () => {
@@ -14,6 +16,8 @@ const Home = () => {
             <div className=" ">
                 <EventSchedule></EventSchedule>
             </div>
+           
+            <Contact></Contact>
         </div>
     );
 };

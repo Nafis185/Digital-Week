@@ -12,7 +12,7 @@ const EventCard = (event) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
-          <p>Price: ${price}</p>
+          <p className="text-xl text-blue-500  " >Price: ${price}</p>
           <div className="card-actions">
             <button className="btn btn-primary">Buy Now</button>
           </div>
