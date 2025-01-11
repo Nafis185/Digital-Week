@@ -1,40 +1,41 @@
+import { useEffect } from "react";
+import EventSchedule from "./EventSchedule";
+import { useState } from "react";
+import EventCard from "./EventCard";
 
 
 const Event = () => {
+  const [event, setEvent] = useState([]);
+  
+  useEffect(() =>{
+    fetch('events.json')
+    .then(res => res.json())
+    .then(data => setEvent(data))
+  }, [])
+
+
+
+
+
     return (
-      <div>
-        <div>
-          <h1 className="text-center text-5xl font-bold mb-5">
-            Event Sehedule{" "}
-          </h1>
-          <hr />
-          <div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-            <div className="card m-10 rounded-md bg-base-300 px-4 py-8">
-              <h1 className="text-2xl font-bold">Opening Ceremony </h1>
-              <p>Day-01 09:00 AM -11.00 AM</p>
-            </div>
-          </div>
+      <div className="mt-10 ">
+        <div className="text-center">
+          <h3 className="text-5xl font-bold text-blue-500 ">Our Events </h3>
+          <h2 className="text-5xl">Our Events Area</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit
+            laudantium blanditiis quibusdam sint <br />
+            reiciendis, amet, nostrum exercitationem vitae maiores ad quam. Esse
+            enim ad ullam porro nulla facere iusto iste.
+          </p>
         </div>
+        <div className="grid grid-cols-1 justify-content-center items-center   md:grid-cols-2 md:gap-5 lg:grid-cols-3 gap-5 mt-10 mr-5 ml-5 ">
+          {event.map((event) => (
+            <EventCard key={event._id} service={event}></EventCard>
+          ))}
+        </div>
+
+        <EventSchedule></EventSchedule>
       </div>
     );
 };
