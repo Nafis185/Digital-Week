@@ -57,7 +57,7 @@ const Collapse = () => {
             </div>
             <div className="collapse-content">
               <p>
-                tabindex={0} attribute is necessary to make the div focusable
+                tabindex={0} attribute is is necessary to make the div focusable
               </p>
             </div>
           </div>
