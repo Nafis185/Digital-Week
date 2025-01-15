@@ -6,6 +6,9 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import About from "../Pages/Home/About/About";
 import Event from "../Pages/Home/Event/Event";
+import Checkout from "../Pages/Checkout/Checkout";
+
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,12 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>
       },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>
+      },
+      
+     
     ],
   },
 ]);

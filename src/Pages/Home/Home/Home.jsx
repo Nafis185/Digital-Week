@@ -3,7 +3,7 @@ import Banner from "../Banner/Banner";
 import EventSchedule from "../Event/EventSchedule";
 import Collapse from "./Collapse";
 import Contact from "./Contact";
-import Contacts from "./Contacts";
+
 
 
 
@@ -17,7 +17,7 @@ const Home = () => {
             <div className=" ">
                 <EventSchedule></EventSchedule>
             </div>
-           <Contacts></Contacts>
+           
             <Contact></Contact>
         </div>
     );

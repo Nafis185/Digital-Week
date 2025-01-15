@@ -7,7 +7,7 @@ const Event = () => {
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
-    fetch("events.json")
+    fetch("http://localhost:5000/Events")
       .then((res) => res.json())
       .then((data) => setEvent(data));
   }, []);
@@ -31,7 +31,7 @@ const Event = () => {
         {event.map((event) => (
           <EventCard 
           key={event._id} 
-          service={event}
+          event={event}
           ></EventCard>
         ))}
       </div>
