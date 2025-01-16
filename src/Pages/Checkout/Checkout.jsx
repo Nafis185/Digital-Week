@@ -38,10 +38,38 @@ const Checkout = () => {
     const number = form.number.value;
     const studentId = form.studentId.value;
     const eventTitle = title;
+    const registration = {
+      participantName: name,
+      email,
+      number,
+      studentId,
+      eventTitle,
+      segment: title,
+      service_id: _id,
+      price: price,
+    };
+    // previous line segment title/evenet title/service title
+
+    console.log(registration);
+
+    fetch("http://localhost:5000/Registers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(registration),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if(data.insertedId){
+          alert("Registration successful");
+          // form.reset();
+        }
+      });
   };
 
   
-
   return (
     <div>
       <h1>Checkout {title} </h1>
@@ -80,7 +108,7 @@ const Checkout = () => {
             </label>
             <input
               type="text"
-              name="text"
+              name="studentId"
               placeholder="student id"
               className="input input-bordered"
               required

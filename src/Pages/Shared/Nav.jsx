@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Nav = () => {
+
+const {user , logOut} = useContext(AuthContext);
+
+const handleLogOut = () =>{
+  logOut()
+  .then(() => {})
+  .catch(error => console.log(error))
+}
     const navItems = (
       <>
         <li>
@@ -15,6 +25,12 @@ const Nav = () => {
         <li>
           <Link to="/gallery"> Gallery</Link>
         </li>
+       { user ?. email? <li><button onClick={handleLogOut} >LogOut</button></li> :
+         <li>
+          <Link to="/login"> Login</Link>
+        </li>
+        
+       }
       </>
     );
 
