@@ -41,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <Checkout></Checkout>
+        element: <Checkout></Checkout>,
+        loader : ({params}) => fetch (`http://localhost:5000/Events/${params.id}`)
       },
       
      
