@@ -7,6 +7,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import About from "../Pages/Home/About/About";
 import Event from "../Pages/Home/Event/Event";
 import Checkout from "../Pages/Checkout/Checkout";
+import Registers from "../Pages/Registers/Registers";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -17,35 +19,37 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/gallery",
-        element: <Gallery></Gallery>
+        element: <Gallery></Gallery>,
       },
       {
         path: "/about",
-        element: <About></About>
+        element: <About></About>,
       },
       {
         path: "/events",
-        element: <Event></Event>
+        element: <Event></Event>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
       },
       {
         path: "/checkout/:id",
         element: <Checkout></Checkout>,
         loader : ({params}) => fetch (`http://localhost:5000/Events/${params.id}`)
       },
-      
-     
+      {
+        path: "/registers",
+        element: <PrivateRoute><Registers></Registers></PrivateRoute>,
+      },
     ],
   },
 ]);

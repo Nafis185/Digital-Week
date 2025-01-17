@@ -25,12 +25,12 @@ const handleLogOut = () =>{
         <li>
           <Link to="/gallery"> Gallery</Link>
         </li>
-       { user ?. email? <li><button onClick={handleLogOut} >LogOut</button></li> :
+       {/* { user ?. email? <li><button onClick={handleLogOut} >LogOut</button></li> :
          <li>
           <Link to="/login"> Login</Link>
         </li>
         
-       }
+       } */}
       </>
     );
 
@@ -75,9 +75,23 @@ const handleLogOut = () =>{
             <ul className="menu menu-horizontal px-1">{navItems}</ul>
           </div>
           <div className="navbar-end">
-            <Link to="/login" >
-              <button className="btn btn-outline btn-info">Register Now</button>
-            </Link>
+            {/* <Link to="/login" >
+              <button className="btn btn-outline btn-info">Login</button>
+            </Link> */}
+            {user?.email ? (
+              <>
+                <li>
+                  <Link to="/registers">My Events </Link>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>LogOut</button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            )}
           </div>
         </div>
       </div>
