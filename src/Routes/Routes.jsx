@@ -10,8 +10,6 @@ import Checkout from "../Pages/Checkout/Checkout";
 import Registers from "../Pages/Registers/Registers";
 import PrivateRoute from "./PrivateRoute";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,16 +41,24 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <Checkout></Checkout>,
-        loader : ({params}) => fetch (`http://localhost:5000/Events/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/Events/${params.id}`),
       },
       {
         path: "/registers",
-        element: <PrivateRoute><Registers></Registers></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Registers></Registers>
+          </PrivateRoute>
+        ),
       },
     ],
   },
 ]);
-
 
 export default router;

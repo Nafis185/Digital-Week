@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import RegisterRow from "./RegisterRow";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Registers = () => {
   const { user } = useContext(AuthContext);
@@ -9,10 +10,14 @@ const Registers = () => {
 
   const url = `http://localhost:5000/registers?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setRegisters(data));
-  }, );
+    axios
+      .get(url, { withCredentials: true })
+      .then( res => setRegisters(res.data));
+    //check previous line setRegister
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => setRegisters(data));
+  });
 
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure you want to delete?");
