@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import RegisterRow from "./RegisterRow";
+import Swal from "sweetalert2";
 
 const Registers = () => {
   const { user } = useContext(AuthContext);
@@ -11,7 +12,50 @@ const Registers = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setRegisters(data));
-  });
+  }, );
+
+  const handleDelete = (id) => {
+    const proceed = confirm("Are you sure you want to delete?");
+    if (proceed) {
+      fetch(`http://localhost:5000/registers/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            Swal.fire("Deleted Successfully");
+            const remaining = registers.filter(
+              (register) => register._id !== id
+            );
+            setRegisters(remaining);
+          }
+        });
+    }
+  };
+  const handleRegisterConfirm = (id) => {
+    fetch(`http://localhost:5000/registers/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.confirmed > 0) {
+          // update state
+          const remaining = registers.filter((register) => register._id !== id);
+          const updated = registers.find((register) => register._id === id);
+
+          updated.status = "confirm";
+          const newRegisters = [updated, ...remaining];
+          setRegisters(newRegisters);
+        }
+      });
+  };
+
   return (
     <div>
       <h1 className="text-5xl">Your Booking: {registers.length} </h1>
@@ -26,17 +70,21 @@ const Registers = () => {
                 </label>
               </th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Segments</th>
+              <th>Email</th>
+              <th>Amount</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-                {registers.map((register) => (
-             
-                <RegisterRow key={register._id} registers={register}></RegisterRow>
-                ))}
-
+            {registers.map((register) => (
+              <RegisterRow
+                key={register._id}
+                registers={register}
+                handleDelete={handleDelete}
+                handleRegisterConfirm={handleRegisterConfirm}
+              ></RegisterRow>
+            ))}
           </tbody>
         </table>
       </div>

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import {AuthContext}  from"../../Providers/AuthProvider";
 import dropdownIcon from "../../assets/svg/arrow.png";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
   const events = useLoaderData();
@@ -64,7 +65,7 @@ const Checkout = () => {
       .then((data) => {
         console.log(data);
         if(data.insertedId){
-          alert("Registration successful");
+          Swal.fire("Registration successful");
           // form.reset();
         }
       });
