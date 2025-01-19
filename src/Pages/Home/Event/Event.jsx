@@ -1,21 +1,26 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
+// import { useState } from "react";
+
 import EventSchedule from "./EventSchedule";
-import { useState } from "react";
 import EventCard from "./EventCard";
 
 const Event = () => {
-  const [event, setEvent] = useState([]);
+  const event = useEvent();
+  // const [event, setEvent] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/events")
+  //     .then((res) => res.json())
+  //     .then((data) => setEvent(data));
+  // }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/Events")
-      .then((res) => res.json())
-      .then((data) => setEvent(data));
-  }, []);
+
+
+
 
   return (
     <div className="mt-10 ">
       <div className="text-center">
-        <h3 className="text-5xl font-bold text-blue-500 ">Our Events </h3>
+        <h3 className="text-5xl font-bold text-blue-500 ">**** Our Events </h3>
         <h2 className="text-5xl">Our Events Area</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit
@@ -29,10 +34,7 @@ const Event = () => {
 
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {event.map((event) => (
-          <EventCard 
-          key={event._id} 
-          event={event}
-          ></EventCard>
+          <EventCard key={event._id} event={event}></EventCard>
         ))}
       </div>
 

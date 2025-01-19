@@ -6,21 +6,23 @@ import axios from "axios";
 
 const Registers = () => {
   const { user } = useContext(AuthContext);
-  const [registers, setRegisters] = useState([]);
 
+  const [registers, setRegisters] = useState([]);
   const url = `http://localhost:5000/registers?email=${user?.email}`;
-  
   useEffect(() => {
     axios
       .get(url, { withCredentials: true })
-      .then( res => setRegisters(res.data));
+      .then((res) => setRegisters(res.data));
+  });
 
-    // check previous line setRegister
+  // ---------------------------------------------------------------------
+  // check previous line setRegister
 
   //   fetch(url, {Credential: "include"})
   //     .then((res) => res.json())
   //     .then((data) => setRegisters(data));
-  });
+  // });
+  // ---------------------------------------------------------------------
 
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure you want to delete?");
@@ -85,21 +87,13 @@ const Registers = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {registers.map((register) => (
+            {registers.map((register) => (
               <RegisterRow
                 key={register._id}
                 registers={register}
                 handleDelete={handleDelete}
                 handleRegisterConfirm={handleRegisterConfirm}
               ></RegisterRow>
-            ))} */}
-            {registers.map((register)=>(
-              <RegisterRow
-              key={register._id}  
-              registers={register}
-              handleDelete={handleDelete}
-              handleRegisterConfirm={handleRegisterConfirm}
-            ></RegisterRow>
             ))}
           </tbody>
         </table>
