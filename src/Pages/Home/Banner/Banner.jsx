@@ -1,6 +1,6 @@
 // import img from "../../../assets/banner/Digital_Week_Banner.jpg";
 // import img2 from "../../../assets/banner/Digital_Week_Banner_2.jpg";
-
+import { Link } from "react-router-dom";
 import img2 from "../../../assets/banner/Digital_Week_Banner_2.jpg";
 
 const Banner = () => {
@@ -15,7 +15,8 @@ const Banner = () => {
             event
           </p>
           <div className="flex gap-5 justify-center items-center">
-            <button className="btn btn-primary">Register Now</button>
+           
+            <Link className="btn btn-primary" to='/events' >Register Now</Link>
           </div>
         </div>
       </div>

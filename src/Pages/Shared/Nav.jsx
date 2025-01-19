@@ -1,11 +1,15 @@
-import { useContext } from "react";
+
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
+import useAuth from "../../hooks/useAuth";
+// import { useContext } from "react";
+// import { AuthContext } from "../../Providers/AuthProvider";
 
 const Nav = () => {
 
-const {user , logOut} = useContext(AuthContext);
+// const {user , logOut} = useContext(AuthContext);
 
+// use hooks -[useAuth]
+const {user , logOut} = useAuth();
 const handleLogOut = () =>{
   logOut()
   .then(() => {})
@@ -80,17 +84,18 @@ const handleLogOut = () =>{
             </Link> */}
             {user?.email ? (
               <>
-                <li>
+                <div className="flex place-items-center gap-5">
                   <Link to="/registers">My Events </Link>
-                </li>
-                <li>
-                  <button onClick={handleLogOut}>LogOut</button>
-                </li>
+
+                  <button className="btn btn-outline" onClick={handleLogOut}>
+                    LogOut
+                  </button>
+                </div>
               </>
             ) : (
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
+              <Link className="btn btn-outline" to="/login">
+                Login
+              </Link>
             )}
           </div>
         </div>

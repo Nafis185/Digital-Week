@@ -9,7 +9,7 @@ const Registers = () => {
   const [registers, setRegisters] = useState([]);
 
   const url = `http://localhost:5000/registers?email=${user?.email}`;
-  // const url = `http://localhost:5000/registers?email=gari@car.com`;   //for checking purpose
+  
   useEffect(() => {
     axios
       .get(url, { withCredentials: true })
