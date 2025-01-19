@@ -9,14 +9,17 @@ const Registers = () => {
   const [registers, setRegisters] = useState([]);
 
   const url = `http://localhost:5000/registers?email=${user?.email}`;
+  // const url = `http://localhost:5000/registers?email=gari@car.com`;   //for checking purpose
   useEffect(() => {
     axios
       .get(url, { withCredentials: true })
       .then( res => setRegisters(res.data));
-    //check previous line setRegister
-    // fetch(url)
-    //   .then((res) => res.json())
-    //   .then((data) => setRegisters(data));
+
+    // check previous line setRegister
+
+  //   fetch(url, {Credential: "include"})
+  //     .then((res) => res.json())
+  //     .then((data) => setRegisters(data));
   });
 
   const handleDelete = (id) => {
@@ -82,13 +85,21 @@ const Registers = () => {
             </tr>
           </thead>
           <tbody>
-            {registers.map((register) => (
+            {/* {registers.map((register) => (
               <RegisterRow
                 key={register._id}
                 registers={register}
                 handleDelete={handleDelete}
                 handleRegisterConfirm={handleRegisterConfirm}
               ></RegisterRow>
+            ))} */}
+            {registers.map((register)=>(
+              <RegisterRow
+              key={register._id}  
+              registers={register}
+              handleDelete={handleDelete}
+              handleRegisterConfirm={handleRegisterConfirm}
+            ></RegisterRow>
             ))}
           </tbody>
         </table>
