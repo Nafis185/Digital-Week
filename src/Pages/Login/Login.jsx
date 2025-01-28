@@ -14,7 +14,7 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
 
   const handlelogin = (event) => {
     event.preventDefault();
@@ -25,16 +25,16 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedInUser = result.user;
-        console.log(loggedInUser);
+        // console.log(loggedInUser);
         const user = {email};
       
         // get access token
         // below down chat gpt shows  local host:5000/Registers check this 
         axios
-          .post("http://localhost:5000/jwt", user, 
+          .post("https://digital-week-server-updated.vercel.app/jwt", user, 
            { withCredentials: true })
           .then( res => {
-            console.log(res.data)
+            // console.log(res.data)
             if (res.data.success) {
                 navigate(location?.state ? location?.state : "/");
             }

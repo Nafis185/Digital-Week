@@ -16,7 +16,7 @@ const RegisterRow = ({ registers , handleDelete , handleRegisterConfirm }) => {
 //  const handleDelete = (id) => {
 //    const proceed = confirm("Are you sure you want to delete?");
 //    if (proceed) {
-//      fetch(`http://localhost:5000/registers/${id}`, {
+//      fetch(`https://digital-week-server-updated.vercel.app/registers/${id}`, {
 //        method: "DELETE",
 //      })
 //        .then((res) => res.json())

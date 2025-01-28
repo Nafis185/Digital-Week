@@ -39,20 +39,20 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentuser?.email || user?.email;
       const loggedUser = { email: userEmail };
       setUser(currentuser);
-      console.log("current user", currentuser);
+      // console.log("current user", currentuser);
       setLoading(false);
       // if user exists then issue a token
       if (currentuser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://digital-week-server-updated.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
-            console.log("token response ", res.data);
+            // console.log("token response ", res.data);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
+          .post("https://digital-week-server-updated.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

@@ -52,10 +52,12 @@ const Checkout = () => {
     };
     // previous line segment title/evenet title/service title
 
-    console.log(registration);
+    // console.log("registration", registration);
 
-    fetch("http://localhost:5000/Registers", {
+    // fetch("https://digital-week-server-updated.vercel.app/Registers", {
+    fetch("https://digital-week-server-updated.vercel.app/Registers", {
       method: "POST",
+      credentials: "include",
       headers: {
         "content-type": "application/json",
       },
@@ -63,8 +65,8 @@ const Checkout = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if(data.insertedId){
+        // console.log(data);
+        if (data.insertedId) {
           Swal.fire("Registration successful");
           // form.reset();
         }

@@ -47,7 +47,19 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Events/${params.id}`),
+          // fetch(`http://localhost:5173/Events/${params.id}`),
+
+
+          // -------------------------------------------------------------------------------
+          // down line from github for correction
+          // fetch(`http://localhost:5000/Events/${params.id}`),
+          //maybe vercel link
+          fetch(`https://digital-week-server-updated.vercel.app/Events/${params.id}`),
+          // -------------------------------------------------------------------------------
+
+
+          //maybe this onec chnage for check
+          // fetch(`https://digital-week-62414.web.app/Events/${params.id}`),
       },
       {
         path: "/registers",

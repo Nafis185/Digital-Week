@@ -1,14 +1,18 @@
-// import { useEffect } from "react";
-// import { useState } from "react";
+// import { useEffect , useState} from "react";
+
 
 import EventSchedule from "./EventSchedule";
 import EventCard from "./EventCard";
+import useEvent from "../../../hooks/useEvent";
 
 const Event = () => {
   const event = useEvent();
+
+
+
   // const [event, setEvent] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:5000/events")
+  //   fetch("https://digital-week-server-updated.vercel.app/events")
   //     .then((res) => res.json())
   //     .then((data) => setEvent(data));
   // }, []);
@@ -20,7 +24,7 @@ const Event = () => {
   return (
     <div className="mt-10 ">
       <div className="text-center">
-        <h3 className="text-5xl font-bold text-blue-500 ">**** Our Events </h3>
+        <h3 className="text-5xl font-bold text-blue-500 ">**** Our Events ****</h3>
         <h2 className="text-5xl">Our Events Area</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit

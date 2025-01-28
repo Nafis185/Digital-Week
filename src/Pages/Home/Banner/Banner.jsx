@@ -14,9 +14,10 @@ const Banner = () => {
             Explore the future of technology at our university's premier digital
             event
           </p>
-          <div className="flex gap-5 justify-center items-center">
-           
-            <Link className="btn btn-primary" to='/events' >Register Now</Link>
+          <div className="flex gap-5 justify-center items-center  ">
+            <Link className="btn btn-primary" to="/events">
+              Register Now
+            </Link>
           </div>
         </div>
       </div>

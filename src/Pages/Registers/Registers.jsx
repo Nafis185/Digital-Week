@@ -2,18 +2,26 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import RegisterRow from "./RegisterRow";
 import Swal from "sweetalert2";
-import axios from "axios";
+// import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Registers = () => {
   const { user } = useContext(AuthContext);
-
   const [registers, setRegisters] = useState([]);
-  const url = `http://localhost:5000/registers?email=${user?.email}`;
+  const axiosSecure = useAxiosSecure();
+
+  // const url = `https://digital-week-server-updated.vercel.app/registers?email=${user?.email}`;
+  const url = `/registers?email=${user?.email}`;
   useEffect(() => {
-    axios
-      .get(url, { withCredentials: true })
+    // axios
+    //   .get(url, { withCredentials: true })
+    //   .then((res) => setRegisters(res.data));
+
+    axiosSecure
+      .get(url)
       .then((res) => setRegisters(res.data));
-  });
+
+  },[url, axiosSecure]);
 
   // ---------------------------------------------------------------------
   // check previous line setRegister
@@ -27,7 +35,7 @@ const Registers = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/registers/${id}`, {
+      fetch(`https://digital-week-server-updated.vercel.app/registers/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -44,7 +52,7 @@ const Registers = () => {
     }
   };
   const handleRegisterConfirm = (id) => {
-    fetch(`http://localhost:5000/registers/${id}`, {
+    fetch(`https://digital-week-server-updated.vercel.app/registers/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
